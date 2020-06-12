@@ -7,7 +7,7 @@ var pool  = mysql.createPool({
 	database: process.env.DB_NAME 
 });
  
-pool.query('SELECT @@hostname hostname', function (error, results) {
+pool.query("SHOW VARIABLES LIKE 'server_id'", function (error, results) {
   if (error) throw error;
   console.log(results);
 });
